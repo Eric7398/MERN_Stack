@@ -5,7 +5,8 @@ import PersonCard from './components/PersonCard'
 function App() {
   return (
     <div className="App">
-      <PersonCard lname="Doe"
+      <PersonCard
+        lname="Doe"
         fname="Jane"
         age={45}
         hairColor="Black"
