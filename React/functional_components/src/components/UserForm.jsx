@@ -14,58 +14,57 @@ const UserForm = (props) => {
     const [passwordError, setPasswordError] = useState("");
     const [confirmPWError, setconfirmPWError] = useState("");
 
-    const firstNameValid = (e) => {
-        setFirstName(e.target.value);
-        if (e.target.value.length < 1 && e.target.value.length !== 0) {
-            setFirstNameError("First name required")
-        } else if (e.target.value.length < 2 && e.target.value.length !== 0) {
-            setFirstNameError("Name requires more than 2 characters.")
-        } else if (e.target.value.length > 2) {
+    const firstNameValid = (input) => {
+        setFirstName(input.target.value);
+        if (input.target.value.length < 1 && input.target.value.length !== 0) {
+            setFirstNameError("First Name Required!")
+        } else if (input.target.value.length < 2 && input.target.value.length !== 0) {
+            setFirstNameError("Name requires more than 2 characters!")
+        } else if (input.target.value.length > 2) {
             setFirstNameError("")
         }
     }
-    const lastNameValid = (e) => {
-        setLastName(e.target.value);
-        if (e.target.value.length < 1 && e.target.value.length !== 0) {
-            setLastNameError("Last name required")
-        } else if (e.target.value.length < 2 && e.target.value.length !== 0) {
-            setLastNameError("Name requires more than 2 characters.")
-        } else if (e.target.value.length > 2) {
+    const lastNameValid = (input) => {
+        setLastName(input.target.value);
+        if (input.target.value.length < 1 && input.target.value.length !== 0) {
+            setLastNameError("Last Name Required!")
+        } else if (input.target.value.length < 2 && input.target.value.length !== 0) {
+            setLastNameError("Name requires more than 2 characters!")
+        } else if (input.target.value.length > 2) {
             setLastNameError("")
         }
     }
-    const emailValid = (e) => {
-        setEmail(e.target.value);
-        if (e.target.value.length < 1 && e.target.value.length !== 0) {
-            setEmailError("Email required")
-        } else if (e.target.value.length < 5 && e.target.value.length !== 0) {
-            setEmailError("Email needs more than 5 characters.")
-        } else if (e.target.value.length > 5) {
+    const emailValid = (input) => {
+        setEmail(input.target.value);
+        if (input.target.value.length < 1 && input.target.value.length !== 0) {
+            setEmailError("Email required!")
+        } else if (input.target.value.length < 5 && input.target.value.length !== 0) {
+            setEmailError("Email needs more than 5 characters!")
+        } else if (input.target.value.length > 5) {
             setEmailError("")
         }
     }
-    const passwordValid = (e) => {
-        setPassword(e.target.value);
-        if (e.target.value.length < 1 && e.target.value.length !== 0) {
-            setPasswordError("Password required")
-        } else if (e.target.value.length < 5 && e.target.value.length !== 0) {
-            setPasswordError("Password needs more than 5 characters.")
-        } else if (e.target.value.length > 5) {
+    const passwordValid = (input) => {
+        setPassword(input.target.value);
+        if (input.target.value.length < 1 && input.target.value.length !== 0) {
+            setPasswordError("Password required!")
+        } else if (input.target.value.length < 5 && input.target.value.length !== 0) {
+            setPasswordError("Password needs more than 5 characters!")
+        } else if (input.target.value.length > 5) {
             setPasswordError("")
         }
     }
 
-    const cPWValid = (e) => {
-        if (e.target.value === password) {
+    const cPWValid = (input) => {
+        if (input.target.value === password) {
             setconfirmPWError("")
         }
-        else setconfirmPWError("passwords dont match")
-
+        else setconfirmPWError("Passwords must match!")
     }
 
 
-    const createUser = (e) => {
-        e.preventDefault();
+    const createUser = (input) => {
+        input.preventDefault();
         const newUser = { firstName, lastName, email, password, confirmPW };
         console.log("Welcome", newUser);
         setHasBeenSubmitted(true);
@@ -91,7 +90,7 @@ const UserForm = (props) => {
                 </div>
                 <div>
                     <label>Email Address: </label>
-                    <input type="text" onChange={emailValid} />
+                    <input type="email" onChange={emailValid} />
                     {emailError ? <p style={{ color: 'red' }}>{emailError}</p> : ''}
                 </div>
                 <div>
@@ -107,7 +106,7 @@ const UserForm = (props) => {
                 <input type="submit" value="Create User" />
             </form>
             <div>
-                <p>Form Data</p>
+                <h2>Form Data</h2>
                 <p>Full Name: {firstName} {lastName}</p>
                 <p>Email: {email}</p>
             </div>
