@@ -1,11 +1,12 @@
-import logo from './logo.svg';
 import './App.css';
-import PersonCard from './components/PersonCard'
+// import PersonCard from './components/PersonCard'
+import UserForm from './components/UserForm'
 
 function App() {
   return (
     <div className="App">
-      <PersonCard
+      <UserForm />
+      {/* <PersonCard
         firstName="Jane"
         lastName="Doe"
         age={45}
@@ -28,7 +29,7 @@ function App() {
         lastName="Smith"
         age={52}
         hairColor="Brown"
-      />
+      /> */}
     </div>
   );
 }
