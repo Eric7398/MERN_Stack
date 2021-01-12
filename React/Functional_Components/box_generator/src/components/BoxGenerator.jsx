@@ -11,7 +11,7 @@ const BoxGenerator = () => {
         if (!colors) return;
         setBoxes([...boxes, colors]);
 
-        // The value goes away but it still shows up in the text box
+        // The value goes away but the text still shows up in the text box
         setColors("");
     };
 
@@ -22,7 +22,7 @@ const BoxGenerator = () => {
 
             <form onSubmit={handleSubmit}>
                 <label>Color: </label>
-                <input type="text" onChange={(e) => setColors(e.target.value)} />
+                <input type="text" onChange={(e) => setColors(e.target.value)} value={colors} />
                 <input type="submit" value="Add" />
             </form>
 
