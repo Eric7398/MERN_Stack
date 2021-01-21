@@ -1,7 +1,6 @@
 import React from 'react';
 
-function People(props) {
-    const { people } = props;
+function People({ people }) {
 
 
     return (
